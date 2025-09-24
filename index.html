@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyHub Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: #1e1e1e;
+      color: #fff;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 250px;
+      background: #111;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .sidebar h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: #4ade80;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      color: #bbb;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+      color: #fff;
+      transform: translateX(5px);
+    }
+
+    /* Dashboard */
+    .dashboard {
+      flex: 1;
+      padding: 30px;
+      overflow-y: auto;
+    }
+
+    .header {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: #2a2a2a;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      animation: fadeInUp 0.6s ease;
+    }
+
+    .card h3 {
+      font-size: 2rem;
+      color: #4ade80;
+      margin-bottom: 5px;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* Progress Section */
+    .progress {
+      background: #2a2a2a;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease;
+    }
+
+    .progress h4 {
+      margin-bottom: 15px;
+    }
+
+    .bar {
+      background: #444;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .bar span {
+      display: block;
+      height: 8px;
+      background: #4ade80;
+      animation: grow 1.5s ease;
+    }
+
+    /* Tasks */
+    .tasks {
+      background: #2a2a2a;
+      padding: 20px;
+      border-radius: 12px;
+      animation: fadeIn 1.2s ease;
+    }
+
+    .tasks h4 {
+      margin-bottom: 10px;
+    }
+
+    .tasks ul {
+      list-style: none;
+    }
+
+    .tasks li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tasks input {
+      accent-color: #4ade80;
+      cursor: pointer;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes grow {
+      from { width: 0; }
+      to { width: var(--progress); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h2>StudyHub</h2>
+    <a href="#">Dashboard</a>
+    <a href="#">Study Resources</a>
+    <a href="#">Calendar</a>
+    <a href="#">Focus Zone</a>
+    <a href="#">Study Sessions</a>
+    <a href="#">Progress Tracker</a>
+    <a href="#">Community</a>
+    <a href="#">Daily Section</a>
+  </div>
+
+  <!-- Main Dashboard -->
+  <div class="dashboard">
+    <div class="header">Welcome back, Student! Ready to ace those exams?</div>
+
+    <!-- Stats Cards -->
+    <div class="cards">
+      <div class="card"><h3>156</h3><p>Study Hours</p></div>
+      <div class="card"><h3>23</h3><p>Topics Mastered</p></div>
+      <div class="card"><h3>3</h3><p>Upcoming Tests</p></div>
+      <div class="card"><h3>12 days</h3><p>Study Streak</p></div>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress">
+      <h4>Recent Study Progress</h4>
+      <p>Physics (Thermodynamics)</p>
+      <div class="bar"><span style="--progress:85%;width:85%"></span></div>
+      <p>Chemistry (Organic Reactions)</p>
+      <div class="bar"><span style="--progress:72%;width:72%"></span></div>
+      <p>Mathematics (Calculus)</p>
+      <div class="bar"><span style="--progress:91%;width:91%"></span></div>
+    </div>
+
+    <!-- Tasks -->
+    <div class="tasks">
+      <h4>Today's Tasks</h4>
+      <ul>
+        <li><input type="checkbox"> Complete Physics Chapter-12</li>
+        <li><input type="checkbox"> Solve 20+ Chemistry MCQs</li>
+        <li><input type="checkbox"> Review Math formulas</li>
+        <li><input type="checkbox"> Watch study session video</li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
