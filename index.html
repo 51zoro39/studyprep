@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>StudyHub Dashboard</title>
+  <title>StudyHub</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
@@ -14,9 +14,11 @@
     }
 
     body {
-      background: #1e1e1e;
-      color: #fff;
+      background: url('https://www.transparenttextures.com/patterns/black-linen.png'),
+                  linear-gradient(135deg, #1f1f1f, #121212);
+      background-size: cover;
       display: flex;
+      color: #fff;
       height: 100vh;
       overflow: hidden;
     }
@@ -24,18 +26,19 @@
     /* Sidebar */
     .sidebar {
       width: 250px;
-      background: #111;
+      background: rgba(20, 20, 20, 0.6);
+      backdrop-filter: blur(15px);
       padding: 20px;
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 18px;
       border-right: 1px solid rgba(255,255,255,0.1);
     }
 
     .sidebar h2 {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       font-weight: 700;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
       color: #4ade80;
     }
 
@@ -43,10 +46,16 @@
       text-decoration: none;
       color: #bbb;
       font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       transition: 0.3s;
+      padding: 8px 12px;
+      border-radius: 8px;
     }
 
     .sidebar a:hover {
+      background: rgba(255,255,255,0.1);
       color: #fff;
       transform: translateX(5px);
     }
@@ -59,10 +68,12 @@
     }
 
     .header {
-      font-size: 1.2rem;
+      font-size: 1rem;
       margin-bottom: 20px;
+      color: #ccc;
     }
 
+    /* Cards */
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -71,11 +82,18 @@
     }
 
     .card {
-      background: #2a2a2a;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(12px);
+      border-radius: 14px;
       padding: 20px;
-      border-radius: 12px;
       text-align: center;
-      animation: fadeInUp 0.6s ease;
+      transition: 0.3s;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.08);
     }
 
     .card h3 {
@@ -91,11 +109,12 @@
 
     /* Progress Section */
     .progress {
-      background: #2a2a2a;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(12px);
+      border-radius: 14px;
       padding: 20px;
-      border-radius: 12px;
       margin-bottom: 20px;
-      animation: fadeIn 1s ease;
+      border: 1px solid rgba(255,255,255,0.1);
     }
 
     .progress h4 {
@@ -103,25 +122,27 @@
     }
 
     .bar {
-      background: #444;
+      background: rgba(255,255,255,0.1);
       border-radius: 8px;
       overflow: hidden;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     .bar span {
       display: block;
       height: 8px;
       background: #4ade80;
-      animation: grow 1.5s ease;
+      width: 0;
+      animation: grow 1.5s forwards;
     }
 
     /* Tasks */
     .tasks {
-      background: #2a2a2a;
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(12px);
+      border-radius: 14px;
       padding: 20px;
-      border-radius: 12px;
-      animation: fadeIn 1.2s ease;
+      border: 1px solid rgba(255,255,255,0.1);
     }
 
     .tasks h4 {
@@ -137,6 +158,8 @@
       display: flex;
       align-items: center;
       gap: 10px;
+      font-size: 0.95rem;
+      color: #ddd;
     }
 
     .tasks input {
@@ -145,19 +168,8 @@
     }
 
     /* Animations */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
     @keyframes grow {
       from { width: 0; }
-      to { width: var(--progress); }
     }
   </style>
 </head>
@@ -165,14 +177,14 @@
   <!-- Sidebar -->
   <div class="sidebar">
     <h2>StudyHub</h2>
-    <a href="#">Dashboard</a>
-    <a href="#">Study Resources</a>
-    <a href="#">Calendar</a>
-    <a href="#">Focus Zone</a>
-    <a href="#">Study Sessions</a>
-    <a href="#">Progress Tracker</a>
-    <a href="#">Community</a>
-    <a href="#">Daily Section</a>
+    <a href="#">📊 Dashboard</a>
+    <a href="#">📚 Study Resources</a>
+    <a href="#">🗓 Calendar</a>
+    <a href="#">🎯 Focus Zone</a>
+    <a href="#">⏳ Study Sessions</a>
+    <a href="#">📈 Progress Tracker</a>
+    <a href="#">👥 Community</a>
+    <a href="#">📝 Daily Section</a>
   </div>
 
   <!-- Main Dashboard -->
@@ -191,11 +203,11 @@
     <div class="progress">
       <h4>Recent Study Progress</h4>
       <p>Physics (Thermodynamics)</p>
-      <div class="bar"><span style="--progress:85%;width:85%"></span></div>
+      <div class="bar"><span style="width:85%"></span></div>
       <p>Chemistry (Organic Reactions)</p>
-      <div class="bar"><span style="--progress:72%;width:72%"></span></div>
+      <div class="bar"><span style="width:72%"></span></div>
       <p>Mathematics (Calculus)</p>
-      <div class="bar"><span style="--progress:91%;width:91%"></span></div>
+      <div class="bar"><span style="width:91%"></span></div>
     </div>
 
     <!-- Tasks -->
